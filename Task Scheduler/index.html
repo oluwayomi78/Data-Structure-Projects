@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Scheduler</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+<div class="flex flex-col items-center w-full max-w-2xl space-y-6">
+
+    <div class="bg-white shadow-lg rounded-xl p-8 w-full">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Task Scheduler</h1>
+        
+        <form class="space-y-4">
+            <div>
+                <label for="taskName" class="block text-sm font-medium text-gray-700">Task Name</label>
+                <input type="text" id="taskName" name="taskName" placeholder="Enter task name" 
+                    class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div>
+                <label for="taskType" class="block text-sm font-medium text-gray-700">Task Type</label>
+                <select id="taskType" name="taskType"
+                    class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500">
+                    <option value="Email">Email</option>
+                    <option value="File Upload">File Upload</option>
+                    <option value="Message">Message</option>
+                </select>
+            </div>
+
+            <div id="fileInputWrapper" class="hidden">
+                <label for="fileUpload" class="block text-sm font-medium text-gray-700">Select File</label>
+                <input type="file" id="fileUpload" name="fileUpload" class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <button type="button" onclick="AddTask()"
+                class="w-full bg-blue-500 text-white py-3 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 font-semibold">
+                Add Task
+            </button>
+        </form>
+    </div>
+
+    <div class="bg-white shadow-lg rounded-xl p-6 w-full">
+        <div class="flex items-center justify-between mb-10">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Task Queue</h2>
+            <button type="button" id="processTask" class="ml-auto bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 font-semibold">
+                Process Next Task
+            </button>
+        </div>
+        <ul id="taskList" class="space-y-3">
+            <li class="text-gray-500 text-center">No tasks in the queue</li>
+        </ul>
+    </div>
+
+    <div class="bg-white shadow-lg rounded-xl p-6 w-full">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Completed Tasks</h2>
+        <ul id="tasksCompleted" class="space-y-3">
+            <li class="text-gray-500 text-center">No completed tasks</li>
+        </ul>
+    </div>
+
+</div>
+
+<script src="task.js"></script>
+</body>
+</html>
