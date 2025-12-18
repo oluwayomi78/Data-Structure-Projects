@@ -6,13 +6,12 @@ const mongoose = require("mongoose");
 
 const Actions = require("./model/actionModel");
 
-const PORT = process.env.PORT || 5000; // ✅ match frontend
+const PORT = process.env.PORT || 5000; 
 const uri = process.env.mongoURI;
 
 app.use(cors());
 app.use(express.json());
 
-// MongoDB connection
 mongoose.connect(uri)
     .then(() => {
         console.log("Connected to MongoDB");
